@@ -13,8 +13,7 @@ import { Button } from "@react-native-material/core";
 export default function App(props) {
 return (
   <View>
-  <Text>Detail de l'evenemtn</Text>
-  <Button title="Next events" onPress={() =>props.navigation.navigate("Evenemts")}/>
+  <Text>Tous les détails de l'événement sont ici</Text>
   </View>
 );
 }

@@ -31,74 +31,9 @@ const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
 
 
-let CustomStackNavigator=({navigation})=>{
+  function CustomTab() {
     return (
-
-            <Stack.Navigator
-            screenOptions={{
-            headerStyle: {
-            backgroundColor: '#0077c2',
-            },
-            headerTintColor:'#fff',
-            }} >
-
-                <Stack.Screen name="Home" component={HomeGroup} />
-                <Stack.Screen name="Activity" component={HomeActivityList} />
-                <Stack.Screen name="Agenda" component={NextEventList} />
-            </Stack.Navigator>
-
-    )
-
-}
-
-
-function CustomDrawerContent(props) {
-    return (
-        <DrawerContentScrollView {...props} screenOptions ={{
-            headerStyle:{
-              backgroundColor:"#5c6bc0"
-            },
-            headerTintColor:"white"
-          }} >
-      
-      
-                <DrawerItem 
-                label ="Home"
-                labelStyle={{color:"#0077c2"}}
-                onPress={()=>{props.navigation.navigate("Activity");}}
-                icon ={()=>  <Ionicons name="md-checkmark-circle" size={32} color="green" />
-                }
-                />
-
-                <DrawerItem 
-                label ="Vos adresses"
-                labelStyle={{color:"#0077c2"}}
-                onPress={()=>{props.navigation.navigate("Activity");}}
-                icon ={()=> <Ionicons name="md-checkmark-circle" size={32} color="green" />
-                }
-                />
-
-                <DrawerItem 
-                label ="Agenda"
-                labelStyle={{color:"#0077c2"}}
-                onPress={()=>{props.navigation.navigate("Agenda");}}
-                icon ={()=> <Ionicons name="md-checkmark-circle" size={32} color="green" />
-                }
-                />
-
-          </DrawerContentScrollView>
-    
-    );
-  }
-  
-
-
-
-
-
-  function App() {
-    return (
-    <Drawer.Navigator initialRouteName="Home"  >
+    <Drawer.Navigator >
             <Drawer.Screen name="Home" component={HomeGroup} />
             <Drawer.Screen name="Activités" component={HomeActivityList} />
             <Drawer.Screen name="Evenemts" component={NextEventList} />
@@ -107,6 +42,24 @@ function CustomDrawerContent(props) {
     );
   }
 
+
+  function App() {
+    return (
+
+        <Stack.Navigator>
+          <Stack.Screen
+            name="Accueil"
+            component={CustomTab}
+            options={{ headerShown: false }}
+          />
+                <Stack.Screen name="Home" component={HomeGroup} />
+                <Stack.Screen name="Activity" component={HomeActivityList} />
+                <Stack.Screen name="Agenda" component={NextEventList} />
+                <Stack.Screen name="Event Details" component={EventDetails} />
+        </Stack.Navigator>
+
+    );
+  }
 
 
 
