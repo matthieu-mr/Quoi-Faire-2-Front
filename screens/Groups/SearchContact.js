@@ -12,7 +12,7 @@ import { Button } from "@react-native-material/core";
 
 export default function App(props) {
 return (
-    <Button title="Events Detils" onPress={() =>props.navigation.navigate("EventDetails")}/>
+    <Button title="Search contact" onPress={() =>props.navigation.navigate("EventDetails")}/>
 );
 }
 
